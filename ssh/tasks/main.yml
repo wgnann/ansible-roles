@@ -1,0 +1,10 @@
+- name: configura sshd_config
+  template:
+    src: sshd.j2
+    dest: /etc/ssh/sshd_config.d/local.conf
+  notify: reinicia ssh
+
+- name: configura ssh_config
+  copy:
+    src: ssh.conf
+    dest: /etc/ssh/ssh_config.d/delegate.conf
