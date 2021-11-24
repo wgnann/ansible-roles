@@ -6,7 +6,7 @@
 
 - name: instala keytab
   copy:
-    src: {{ ansible_hostname }}.keytab
+    src: "keytab/{{ ansible_hostname }}.keytab"
     dest: /etc/krb5.keytab
 
 - name: certificado ldap
