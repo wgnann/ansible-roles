@@ -1,0 +1,21 @@
+- name: pacotes auth
+  apt:
+    update_cache: yes
+    pkg:
+      - sssd
+
+- name: instala keytab
+  copy:
+    src: {{ ansible_hostname }}.keytab
+    dest: /etc/krb5.keytab
+
+- name: certificado ldap
+  copy:
+    src: cacert.pem
+    dest: /etc/ldap/cacert.pem
+
+- name: configura sssd
+  copy:
+    src: sssd.conf
+    dest: /etc/sssd/sssd.conf
+    mode: 0600
