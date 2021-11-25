@@ -1,0 +1,26 @@
+- name: pacotes autofs
+  apt:
+    update_cache: yes
+    pkg:
+      - autofs
+      - nfs-common
+      - quota
+      - unburden-home-dir
+
+- name: diretorio autofs
+  file:
+    path: /etc/autofs
+    state: directory
+
+- name: configura shares
+  template:
+    src: share.j2
+    dest: "/etc/autofs/{{ item }}"
+  loop: "{{ share }}"
+
+- name: configura autofs
+  lineinfile:
+    create: yes
+    path: /etc/auto.master.d/ime.autofs
+    line: "/home/{{ item }}    /etc/autofs/{{ item }}"
+  loop: "{{ share }}"
