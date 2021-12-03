@@ -1,0 +1,30 @@
+- name: pacotes gui
+  apt:
+    update_cache: yes
+    pkg:
+      - default-jre
+      - hyphen-pt-br
+      - fonts-recommended
+      - ttf-mscorefonts-installer
+      - chromium
+      - chromium-l10n
+      - webext-ublock-origin-chromium
+      - webext-ublock-origin-firefox
+      - libreoffice-help-pt-br
+      - libreoffice-lightproof-pt-br
+      - djview4
+      - djvulibre-bin
+      - elinks
+      - geany
+      - info
+      - okular
+      - pavucontrol
+      - pdfarranger
+      - unrar-free
+      - vlc
+
+- name: lightdm minimum uid
+  lineinfile:
+    path: /etc/lightdm/users.conf
+    regexp: '^minimum-uid='
+    line: minimum-uid=200
