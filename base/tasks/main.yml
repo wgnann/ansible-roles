@@ -32,6 +32,7 @@
       - colordiff
       - debian-keyring
       - dos2unix
+      - emacs
       - ethtool
       - htop
       - iftop
@@ -62,6 +63,18 @@
       - unicode
       - vim
       - wakeonlan
+
+- name: cups
+  lineinfile:
+    path: /etc/environment
+    regexp: '^CUPS_SERVER='
+    line: CUPS_SERVER=cups.ime.usp.br
+
+- name: ntp
+  lineinfile:
+    path: /etc/systemd/timesyncd.conf
+    regexp: '^NTP='
+    line: NTP=ntp.usp.br
 
 - name: chaves de ssh
   authorized_key:
