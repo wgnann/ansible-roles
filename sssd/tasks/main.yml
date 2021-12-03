@@ -20,3 +20,4 @@
     src: sssd.conf
     dest: /etc/sssd/sssd.conf
     mode: 0600
+  notify: reinicia sssd
