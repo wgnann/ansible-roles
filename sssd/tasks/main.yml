@@ -2,6 +2,7 @@
   apt:
     update_cache: yes
     pkg:
+      - krb5-user
       - sssd
 
 - name: instala keytab
