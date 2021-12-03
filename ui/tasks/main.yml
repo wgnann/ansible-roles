@@ -22,6 +22,7 @@
       - pdfarranger
       - unrar-free
       - vlc
+      - xournal
 
 - name: lightdm minimum uid
   lineinfile:
