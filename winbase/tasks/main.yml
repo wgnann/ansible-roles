@@ -1,0 +1,32 @@
+- name: Modifica regra HTTPS do WinRM no firewall do Windows
+  community.windows.win_firewall_rule:
+    name: Allow WinRM HTTPS
+    direction: in
+    remoteip: '{{ winrm_source_ip }}'
+    localport: 5986
+    protocol: TCP
+    action: allow
+    state: present
+    enabled: yes
+
+- name: Define o usuário admir
+  ansible.windows.win_user:
+    name: admir
+    password: "{{ lookup('password', (admir_password_path|default('/tmp')) + '/' + inventory_hostname) }}"
+    state: present
+    groups:
+      - Administradores
+
+- name: Instala programas básicos no Windows
+  win_chocolatey:
+    name:
+      - 7zip.install
+      - firefox
+      - google-drive-file-stream
+      - googlechrome
+      - libreoffice-fresh
+      - notepadplusplus
+      - openjdk
+      - putty.install
+      - winscp
+    state: present
