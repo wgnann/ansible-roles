@@ -1,0 +1,22 @@
+- name: pacotes lab
+  apt:
+    update_cache: yes
+    pkg:
+      - kbibtex
+      - kile
+      - kile-l10n
+      - texlive-latex-recommended
+      - texmaker
+      - build-essential
+      - curl
+      - git
+      - jq
+      - julia
+      - octave
+      - python3-pip
+      - r-recommended
+      - spyder
+
+- name: install rstudio
+  apt:
+    deb: https://download1.rstudio.org/desktop/bionic/amd64/rstudio-2021.09.1-372-amd64.deb
