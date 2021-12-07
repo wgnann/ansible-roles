@@ -79,7 +79,7 @@
 - name: pam mkhomedir
   lineinfile:
     path: /etc/pam.d/common-session
-    line: "session optional pam_mkhomedir.so"
+    line: session optional pam_mkhomedir.so
 
 - name: chaves de ssh
   authorized_key:
