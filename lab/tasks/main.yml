@@ -21,6 +21,12 @@
   apt:
     deb: https://download1.rstudio.org/desktop/bionic/amd64/rstudio-2021.09.1-372-amd64.deb
 
+- name: logind logout kill
+  lineinfile:
+    path: /etc/systemd/logind.conf
+    line: 'KillUserProcesses=yes'
+  notify: reinicia logind
+
 - name: dconf profile dir
   file:
     path: /etc/dconf/profile
