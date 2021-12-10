@@ -1,0 +1,4 @@
+[org/cinnamon/desktop/background]
+picture-uri='file:///usr/share/backgrounds/gnome/SeaSunset.jpg'
+[org/nemo/desktop]
+volumes-visible=true

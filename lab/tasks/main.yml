@@ -20,3 +20,24 @@
 - name: install rstudio
   apt:
     deb: https://download1.rstudio.org/desktop/bionic/amd64/rstudio-2021.09.1-372-amd64.deb
+
+- name: dconf profile dir
+  file:
+    path: /etc/dconf/profile
+    state: directory
+
+- name: dconf user dbs
+  copy:
+    src: dconf/user
+    dest: /etc/dconf/profile/user
+
+- name: dconf local.d dir
+  file:
+    path: /etc/dconf/db/local.d
+    state: directory
+
+- name: dconf default
+  copy:
+    src: dconf/default
+    dest: /etc/dconf/db/local.d/00-default
+  notify: dconf update
