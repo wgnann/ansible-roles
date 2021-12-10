@@ -75,6 +75,7 @@
     path: /etc/systemd/timesyncd.conf
     regexp: '^NTP='
     line: NTP=ntp.usp.br
+  notify: reinicia timesyncd
 
 - name: pam mkhomedir
   lineinfile:
