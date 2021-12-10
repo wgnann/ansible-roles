@@ -6,5 +6,5 @@
 
 - name: configura ssh_config
   copy:
-    src: ssh.conf
+    content: GSSAPIDelegateCredentials yes
     dest: /etc/ssh/ssh_config.d/delegate.conf
