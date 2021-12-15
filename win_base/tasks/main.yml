@@ -20,6 +20,7 @@
 - name: Instala programas básicos no Windows
   win_chocolatey:
     name:
+      - adobereader
       - 7zip.install
       - firefox
       - google-drive-file-stream
@@ -29,4 +30,5 @@
       - openjdk
       - putty.install
       - winscp
+      - xournalplusplus
     state: present
