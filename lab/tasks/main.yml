@@ -27,6 +27,11 @@
     line: 'KillUserProcesses=yes'
   notify: reinicia logind
 
+- name: wallpaper
+  copy:
+    src: wallviso.png
+    dest: /usr/share/backgrounds/wallviso.png
+
 - name: dconf profile dir
   file:
     path: /etc/dconf/profile
