@@ -1,0 +1,28 @@
+- name: Verifica a existência da pasta do F-Secure
+  win_stat:
+    path: '%ProgramFiles(x86)%\F-Secure\Client Security\fsscan.exe'
+  register: fsecure_folder
+
+- name: Instala o F-Secure
+  block:
+    - name: Cria pasta da SI na raíz do sistema
+      win_file:
+        path: '%SYSTEMDRIVE%\si'
+        state: directory
+
+    - name: Copia o instalador do F-Secure para o destino
+      win_copy:
+        src: '{{ fsecure_installer_path ~ "/" ~ fsecure_installer_filename }}'
+        dest: '{{ "%SYSTEMDRIVE%\\si\\" ~ fsecure_installer_filename }}'
+
+    - name: Descompacta o instalador do F-Secure
+      win_unzip:
+        src: '{{ "%SYSTEMDRIVE%\\si\\" ~ fsecure_installer_filename }}'
+        dest: '%SYSTEMDRIVE%\si\'
+        delete_archive: yes
+
+    - name: Executa o instalador do F-Secure
+      win_command: one-launcher.exe --install --msi OneClientCS.msi
+      args:
+        chdir: '%SYSTEMDRIVE%\si\fsecure-15.11-win\program\inst'
+  when: fsecure_folder.stat.exists == false
