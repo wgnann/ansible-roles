@@ -1,0 +1,36 @@
+- name: Instala programas usados nas máquinas de sala de aula
+  win_chocolatey:
+    name: [
+      geogebra-classic.install,
+      gimp,
+      inkscape,
+      miktex,
+      r,
+      r.studio,
+      skype,
+      texmaker,
+      texniccenter,
+      zoom,
+    ]
+    state: present
+
+- name: Cria usuário audiovisual
+  ansible.windows.win_user:
+    name: audiovisual
+    password: '{{ audiovisual_password }}'
+    state: present
+    groups:
+      - 'Administradores'
+
+- name: Cria usuário aula
+  ansible.windows.win_user:
+    name: aula
+    password: 'aula'
+    state: present
+    groups:
+      - 'Convidados'
+
+- name: Define login automático para o usuário aula
+  community.windows.win_auto_logon:
+    username: aula
+    password: 'aula'

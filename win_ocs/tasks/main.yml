@@ -1,0 +1,20 @@
+- name: Verifica a existência da pasta do OCS
+  win_stat:
+    path: '%ProgramFiles(x86)%\OCS Inventory Agent'
+  register: ocs_folder
+
+- name: Instala o OCS
+  block:
+    - name: Cria pasta da SI na raíz do sistema
+      win_file:
+        path: '%SYSTEMDRIVE%\si'
+        state: directory
+
+    - name: Copia o instalador do OCS para o destino
+      win_copy:
+        src: '{{ ocs_installer_path ~ "/" ~ ocs_installer_filename }}'
+        dest: '{{ "%SYSTEMDRIVE%\\si\\" ~  ocs_installer_filename }}'
+
+    - name: Executa o instalador do OCS
+      win_command: "{{ ansible_facts['env']['SystemDrive'] }}\\si\\ocs.exe"
+  when: ocs_folder.stat.exists == false
