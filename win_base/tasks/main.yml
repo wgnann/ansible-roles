@@ -17,6 +17,17 @@
     groups:
       - Administradores
 
+- name: Desliga fonte padrão do Chocolatey
+  win_chocolatey_source:
+    name: chocolatey
+    state: disabled
+
+- name: Adiciona fonte local ao Chocolatey
+  win_chocolatey_source:
+    name: '{{ chocolatey_source_name }}'
+    state: present
+    source: '{{ chocolatey_source_url }}'
+
 - name: Instala programas básicos no Windows
   win_chocolatey:
     name:
