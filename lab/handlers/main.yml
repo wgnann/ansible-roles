@@ -1,6 +1,3 @@
-- name: dconf update
-  command: /usr/bin/dconf update
-
 - name: reinicia logind
   service:
     name: systemd-logind

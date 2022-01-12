@@ -30,3 +30,18 @@
     path: /etc/lightdm/users.conf
     regexp: '^minimum-uid='
     line: minimum-uid=200
+
+- name: dconf profile dir
+  file:
+    path: /etc/dconf/profile
+    state: directory
+
+- name: dconf user dbs
+  copy:
+    src: dconf/user
+    dest: /etc/dconf/profile/user
+
+- name: dconf local.d dir
+  file:
+    path: /etc/dconf/db/local.d
+    state: directory

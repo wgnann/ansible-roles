@@ -32,23 +32,8 @@
     src: wallviso.png
     dest: /usr/share/backgrounds/wallviso.png
 
-- name: dconf profile dir
-  file:
-    path: /etc/dconf/profile
-    state: directory
-
-- name: dconf user dbs
+- name: configura background
   copy:
-    src: dconf/user
-    dest: /etc/dconf/profile/user
-
-- name: dconf local.d dir
-  file:
-    path: /etc/dconf/db/local.d
-    state: directory
-
-- name: dconf default
-  copy:
-    src: dconf/default
-    dest: /etc/dconf/db/local.d/00-default
+    src: dconf/background
+    dest: /etc/dconf/db/local.d/00-background
   notify: dconf update
