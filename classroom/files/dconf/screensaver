@@ -1,0 +1,4 @@
+[org/cinnamon/desktop/screensaver]
+lock-enabled=false
+[org/cinnamon/settings-daemon/plugins/power]
+lock-on-suspend=false

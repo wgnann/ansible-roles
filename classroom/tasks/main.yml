@@ -1,0 +1,17 @@
+- name: adiciona usuário aula
+  user:
+    name: aula
+    password: '{{ classroom_user_password}}'
+    shell: /bin/bash
+
+- name: configura autologin
+  lineinfile:
+    path: /etc/lightdm/lightdm.conf
+    regexp: '^#autologin-user='
+    line: autologin-user=aula
+
+- name: configura screensaver
+  copy:
+    src: dconf/screensaver
+    dest: /etc/dconf/db/local.d/01-screensaver
+  notify: dconf update
