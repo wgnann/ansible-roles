@@ -1,3 +1,7 @@
+- name: pacotes ssh
+  apt:
+    name: molly-guard
+
 - name: configura sshd_config
   template:
     src: sshd.j2
