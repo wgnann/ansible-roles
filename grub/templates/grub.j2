@@ -1,0 +1,6 @@
+#! /bin/sh
+
+cat <<EOF
+superusers="admir"
+password_pbkdf2 admir {{ grub_admir_password }}
+EOF
