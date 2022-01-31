@@ -13,6 +13,7 @@
   ansible.windows.win_user:
     name: admir
     password: "{{ lookup('password', (admir_password_path|default('/tmp')) + '/' + inventory_hostname) }}"
+    password_never_expires: yes
     state: present
     groups:
       - Administradores
