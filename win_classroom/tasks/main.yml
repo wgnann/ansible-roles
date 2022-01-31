@@ -18,6 +18,7 @@
   ansible.windows.win_user:
     name: audiovisual
     password: '{{ audiovisual_password }}'
+    password_never_expires: yes
     state: present
     groups:
       - 'Administradores'
@@ -26,6 +27,7 @@
   ansible.windows.win_user:
     name: aula
     password: 'aula'
+    password_never_expires: yes
     state: present
     groups:
       - 'Convidados'
