@@ -26,13 +26,28 @@
 - name: Cria usuário aula
   ansible.windows.win_user:
     name: aula
-    password: 'aula'
     password_never_expires: yes
     state: present
     groups:
       - 'Convidados'
 
-- name: Define login automático para o usuário aula
-  community.windows.win_auto_logon:
-    username: aula
-    password: 'aula'
+- name: Define o usuário do login automático para o usuário aula
+  ansible.windows.win_regedit:
+    path: 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon'
+    type: string
+    name: DefaultUserName
+    data: aula
+
+- name: Define a senha do login automático para o usuário aula
+  ansible.windows.win_regedit:
+    path: 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon'
+    type: string
+    name: DefaultPassword
+    data: ''
+
+- name: Liga o login automático
+  ansible.windows.win_regedit:
+    path: 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon'
+    type: string
+    name: AutoAdminLogon
+    data: '1'
