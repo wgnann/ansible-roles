@@ -21,7 +21,7 @@
 - name: Instala o Chocolatey
   win_chocolatey:
     name: chocolatey
-    source: '{{ chocolatey_source_url }}'
+    source: '{{ chocolatey_installer_url }}'
 
 - name: Desliga fonte padrão do Chocolatey
   win_chocolatey_source:
