@@ -40,7 +40,7 @@
       - adobereader
       - 7zip.install
       - firefox
-      - google-drive-file-stream
+      - googledrive
       - googlechrome
       - libreoffice-fresh
       - notepadplusplus

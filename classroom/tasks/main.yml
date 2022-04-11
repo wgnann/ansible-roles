@@ -2,21 +2,22 @@
   apt:
     update_cache: yes
     pkg:
-      - kbibtex
-      - kile
-      - kile-l10n
-      - texlive-latex-recommended
-      - texmaker
       - build-essential
+      - cmake
       - curl
       - git
       - jq
       - julia
+      - kbibtex
+      - kile
+      - kile-l10n
       - octave
       - python3-pip
       - r-cran-rcmdr
       - r-recommended
       - spyder
+      - texlive-latex-recommended
+      - texmaker
 
 - name: install rstudio
   apt:
