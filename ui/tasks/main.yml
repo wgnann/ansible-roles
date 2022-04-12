@@ -24,6 +24,7 @@
       - unrar-free
       - vlc
       - xournal
+      - r8168-dkms
 
 - name: lightdm minimum uid
   lineinfile:
