@@ -11,6 +11,7 @@
       - kbibtex
       - kile
       - kile-l10n
+      - mu-editor
       - octave
       - python3-pip
       - r-cran-rcmdr
