@@ -24,6 +24,10 @@
   apt:
     deb: https://download1.rstudio.org/desktop/bionic/amd64/rstudio-2021.09.1-372-amd64.deb
 
+- name: install automirror
+  apt:
+    deb: https://github.com/schlomo/automirror/releases/download/v49/automirror_49_all.deb
+
 - name: adiciona usuário aula
   user:
     name: aula
@@ -41,3 +45,9 @@
     src: dconf/screensaver
     dest: /etc/dconf/db/local.d/01-screensaver
   notify: dconf update
+
+- name: configura automirror
+  file:
+    src: /usr/share/applications/automirror.desktop
+    dest: /etc/xdg/autostart/automirror.desktop
+    state: link
