@@ -38,3 +38,13 @@
     src: dconf/background
     dest: /etc/dconf/db/local.d/00-background
   notify: dconf update
+
+- name: wallpaper login
+  copy:
+    src: wallogin.png
+    dest: /usr/share/backgrounds/wallogin.png
+
+- name: configura login background
+  copy:
+    src: lightdm-gtk-greeter.conf.d/02_ime.conf
+    dest: /usr/share/lightdm/lightdm-gtk-greeter.conf.d/02_ime.conf
