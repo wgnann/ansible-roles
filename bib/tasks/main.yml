@@ -1,0 +1,58 @@
+- name: adiciona usuário guest
+  user:
+    name: guest
+    home: /tmp/guest
+
+- name: configura autologin
+  lineinfile:
+    path: /etc/lightdm/lightdm.conf
+    regexp: '^#autologin-user='
+    line: autologin-user=guest
+
+- name: wallpaper
+  copy:
+    src: wallbib.png
+    dest: /usr/share/backgrounds/wallbib.png
+
+- name: configura background
+  copy:
+    src: dconf/background
+    dest: /etc/dconf/db/local.d/00-background
+  notify: dconf update
+
+- name: configura screensaver
+  copy:
+    src: dconf/screensaver
+    dest: /etc/dconf/db/local.d/01-screensaver
+  notify: dconf update
+
+- name: diretório Desktop
+  file:
+    path: /etc/skel/Desktop
+    state: directory
+
+- name: configura skel
+  copy:
+    src: "skel/Desktop/{{ item }}"
+    dest: "/etc/skel/Desktop/{{ item }}"
+    mode: 0755
+  with_items:
+    - bib.desktop
+    - dedalus.desktop
+    - firefox-esr.desktop
+    - pbi.desktop
+
+- name: icone biblioteca
+  copy:
+    src: icons/biblioteca.jpg
+    dest: /usr/share/icons/biblioteca.jpg
+
+- name: icone dedalus
+  copy:
+    src: icons/dedalus.png
+    dest: /usr/share/icons/dedalus.png
+
+- name: icone pbi
+  copy:
+    src: icons/pbi.png
+    dest: /usr/share/icons/pbi.png

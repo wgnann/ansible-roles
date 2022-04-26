@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Biblioteca
+Comment=Acesso à página da Biblioteca
+GenericName=Biblioteca
+Exec=/usr/lib/firefox-esr/firefox-esr --new-tab https://www.ime.usp.br/bib
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/usr/share/icons/biblioteca.jpg

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Busca Integrada
+Comment=Acesso ao portal de Busca Integrada
+GenericName=Busca Integrada
+Exec=/usr/lib/firefox-esr/firefox-esr --new-tab http://buscaintegrada.usp.br/
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/usr/share/icons/pbi.png

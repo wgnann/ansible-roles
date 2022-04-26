@@ -1,0 +1,22 @@
+[Desktop Entry]
+Name=Firefox
+Name[pt]=Firefox
+Name[pt_BR]=Firefox
+Comment=Browse the World Wide Web
+Comment[pt]=Navegue na Internet
+Comment[pt_BR]=Navegue na Internet
+GenericName=Web Browser
+GenericName[pt]=Navegador Web
+GenericName[pt_BR]=Navegador Web
+X-GNOME-FullName=Firefox ESR Web Browser
+X-GNOME-FullName[pt]=Firefox ESR Navegador Web
+X-GNOME-FullName[pt_BR]=Navegador Web Firefox ESR
+Exec=/usr/lib/firefox-esr/firefox-esr --new-tab https://www.ime.usp.br
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=firefox-esr
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/vnd.mozilla.xul+xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;
+StartupWMClass=Firefox-esr
+StartupNotify=true

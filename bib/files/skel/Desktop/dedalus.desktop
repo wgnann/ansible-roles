@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Dedalus
+Comment=Acesso ao sistema Dedalus
+GenericName=Dedalus
+Exec=/usr/lib/firefox-esr/firefox-esr --new-tab http://dedalus.usp.br/
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/usr/share/icons/dedalus.png
