@@ -1,17 +1,17 @@
 - name: Instala programas usados nas máquinas de sala de aula
   win_chocolatey:
-    name: [
-      geogebra-classic.install,
-      gimp,
-      inkscape,
-      miktex,
-      r.project,
-      r.studio,
-      skype,
-      texmaker,
-      texniccenter,
-      zoom,
-    ]
+    name:
+      - geogebra-classic.install
+      - gimp
+      - inkscape
+      - miktex
+      - python
+      - r.project
+      - r.studio
+      - skype
+      - texmaker
+      - texniccenter
+      - zoom
     state: present
 
 - name: Cria usuário audiovisual
