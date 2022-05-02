@@ -6,6 +6,7 @@
       - kile
       - kile-l10n
       - texlive-latex-recommended
+      - texlive-science
       - texmaker
       - build-essential
       - curl
