@@ -5,7 +5,7 @@
       - kbibtex
       - kile
       - kile-l10n
-      - texlive-latex-recommended
+      - texlive-full
       - texmaker
       - build-essential
       - curl
