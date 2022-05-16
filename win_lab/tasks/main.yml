@@ -1,0 +1,10 @@
+- name: Instala programas dos laboratórios
+  win_chocolatey:
+    name:
+      - geogebra-classic.install
+      - miktex
+      - texmaker
+      - texniccenter
+      - r.project
+      - r.studio
+    state: present
