@@ -1,0 +1,39 @@
+- name: Roda os comando do ksetup
+  block:
+    - name: Define o domínio
+      win_command: ksetup /setdomain IME.USP.BR
+
+    - name: Define o servidor de tickets
+      win_command: ksetup /addkdc IME.USP.BR kerberos.ime.usp.br
+
+    - name: Define o servidor de senhas (serve para trocar a senha)
+      win_command: ksetup /addkpasswd IME.USP.BR kerberos.ime.usp.br
+
+    - name: Define o mapeamento do principal USER@IME.USP.BR para usuário local
+      win_command: ksetup /mapuser * *
+
+    - name: Configura o computador para se autenticar com a senha de máquina
+      win_command: "ksetup /setcomputerpassword {{ lookup('password', (kerberos_password_path|default('/tmp')) + '/' + inventory_hostname)  }}"
+  when: ansible_facts['domain'] is ne('IME.USP.BR')
+
+
+- name: Define o domínio padrão de login
+  ansible.windows.win_regedit:
+    path: 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
+    type: string
+    name: DefaultLogonDomain
+    data: IME.USP.BR
+
+- name: Esconde o último usuário
+  ansible.windows.win_regedit:
+    path: 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
+    type: dword
+    name: dontdisplaylastusername
+    data: 1
+
+- name: Desliga o bloqueio de tela
+  ansible.windows.win_regedit:
+    path: 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
+    type: dword
+    name: DontDisplayLockedUserId
+    data: 3
