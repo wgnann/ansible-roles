@@ -14,6 +14,7 @@
     name: admir
     password: "{{ lookup('password', (admir_password_path|default('/tmp')) + '/' + inventory_hostname) }}"
     password_never_expires: yes
+    update_password: on_create
     state: present
     groups:
       - Administradores

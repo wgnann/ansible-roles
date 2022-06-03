@@ -1,0 +1,21 @@
+- name: Consulta ldap
+  community.general.ldap_search:
+    bind_dn: ""
+    dn: "cn={{ login_group }},ou=Groups,dc=ime,dc=usp,dc=br"
+    server_uri: "ldaps://midas.ime.usp.br"
+    attrs:
+      - "memberUid"
+    validate_certs: no
+  delegate_to: localhost
+  vars:
+    ansible_connection: local
+  register: group_members
+
+- name: Cria os usuários
+  ansible.windows.win_user:
+    name: "{{ item }}"
+    password: lookup('community.general.random_string', length=50)
+    password_never_expires: yes
+    update_password: on_create
+    state: present
+  loop: "{{ group_members.results[0].memberUid }}"
