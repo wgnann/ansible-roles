@@ -12,6 +12,8 @@
       - git
       - jq
       - julia
+      - libgdal-dev
+      - libproj-dev
       - octave
       - python3-pip
       - r-cran-rcmdr
