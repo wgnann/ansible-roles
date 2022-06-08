@@ -1,0 +1,10 @@
+- name: Instala o pacote do agente do OCS
+  apt:
+    update_cache: yes
+    pkg:
+      - ocsinventory-agent
+
+- name: Coloca o arquivo de configuração
+  copy:
+    content: "server=ocs.ime.usp.br"
+    dest: /etc/ocsinventory/ocsinventory-agent.cfg
