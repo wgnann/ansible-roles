@@ -1,0 +1,1 @@
+ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="radeon_bl0", RUN+="/usr/bin/chmod a+w /sys/class/backlight/radeon_bl0/brightness"

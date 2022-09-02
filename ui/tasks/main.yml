@@ -21,6 +21,7 @@
       - okular
       - pavucontrol
       - pdfarranger
+      - python3-tk
       - unrar-free
       - vlc
       - xournal

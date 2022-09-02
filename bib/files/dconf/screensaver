@@ -2,3 +2,4 @@
 lock-enabled=false
 [org/cinnamon/settings-daemon/plugins/power]
 lock-on-suspend=false
+sleep-display-ac=0

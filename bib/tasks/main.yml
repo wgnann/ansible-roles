@@ -26,6 +26,12 @@
     dest: /etc/dconf/db/local.d/01-screensaver
   notify: dconf update
 
+- name: configura applets
+  copy:
+    src: dconf/applets
+    dest: /etc/dconf/db/local.d/02-applets
+  notify: dconf update
+
 - name: diretório Desktop
   file:
     path: /etc/skel/Desktop
@@ -56,3 +62,23 @@
   copy:
     src: icons/pbi.png
     dest: /usr/share/icons/pbi.png
+
+- name: udev radeon rules
+  copy:
+    src: udev/radeon.rules
+    dest: /etc/udev/rules.d/31-radeon.rules
+
+- name: diretório brightness
+  file:
+    path: /usr/share/cinnamon/applets/brightness@ime.usp.br
+    state: directory
+
+- name: configura applet brightness
+  copy:
+    src: "brightness@ime.usp.br/{{ item }}"
+    dest: "/usr/share/cinnamon/applets/brightness@ime.usp.br/{{ item }}"
+    mode: 0755
+  with_items:
+    - applet.js
+    - brightness.py
+    - metadata.json
