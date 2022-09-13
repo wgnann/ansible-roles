@@ -32,6 +32,14 @@
   user:
     name: aula
     password: '{{ classroom_user_password}}'
+    append: yes
+    groups:
+      - audio
+      - bluetooth
+      - netdev
+      - plugdev
+      - scanner
+      - video
     shell: /bin/bash
 
 - name: configura autologin
