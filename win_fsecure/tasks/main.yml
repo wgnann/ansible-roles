@@ -24,5 +24,5 @@
     - name: Executa o instalador do F-Secure
       win_command: one-launcher.exe --install --msi OneClientCS.msi
       args:
-        chdir: '%SYSTEMDRIVE%\si\fsecure-15.11-win\program\inst'
+        chdir: '%SYSTEMDRIVE%\si\fsecure\program\inst'
   when: fsecure_folder.stat.exists == false
