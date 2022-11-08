@@ -20,6 +20,7 @@
       - r-cran-rcmdr
       - r-recommended
       - spyder
+      - xfig
 
 - name: install rstudio
   apt:
