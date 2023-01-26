@@ -17,14 +17,8 @@
       - libudunits2-dev
       - octave
       - python3-pip
-      - r-cran-rcmdr
-      - r-recommended
       - spyder
       - xfig
-
-- name: install rstudio
-  apt:
-    deb: https://download1.rstudio.org/desktop/bionic/amd64/rstudio-2021.09.1-372-amd64.deb
 
 - name: logind logout kill
   lineinfile:

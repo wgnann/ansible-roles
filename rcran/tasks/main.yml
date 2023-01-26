@@ -1,0 +1,32 @@
+- name: Adicionar chave do repositório do CRAN
+  ansible.builtin.apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 95C0FAF38DB3CCAD0C080A7BDC78B2DDEABC47B7
+
+- name: Adicionar repositório do CRAN
+  ansible.builtin.apt_repository:
+    repo: deb http://cloud.r-project.org/bin/linux/debian bullseye-cran40/
+    filename: rcran
+
+- name: Instalar pacotes do R
+  ansible.builtin.apt:
+    update_cache: yes
+    state: latest
+    default_release: bullseye-cran40
+    pkg:
+      - r-base-dev
+      - r-recommended
+
+- name: Instalar cmake para compilação de pacotes e otimizadores sugeridos
+  ansible.builtin.apt:
+    pkg:
+      - cmake
+      - libatlas3-base
+      - libopenblas-base
+
+- name: Instala Rcmdr
+  ansible.builtin.command: Rscript -e "install.packages(\"Rcmdr\", repos=\"https://cloud.r-project.org/\", dependencies=TRUE)"
+
+- name: instala Rstudio
+  ansible.builtin.apt:
+    deb: https://download1.rstudio.org/electron/bionic/amd64/rstudio-2022.12.0-353-amd64.deb
