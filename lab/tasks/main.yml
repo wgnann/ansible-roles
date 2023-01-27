@@ -13,7 +13,9 @@
       - jq
       - julia
       - libfontconfig1-dev
+      - libfribidi-dev
       - libgdal-dev
+      - libharfbuzz-dev
       - libproj-dev
       - libudunits2-dev
       - octave
