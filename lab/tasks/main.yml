@@ -12,6 +12,7 @@
       - git
       - jq
       - julia
+      - libfontconfig1-dev
       - libgdal-dev
       - libproj-dev
       - libudunits2-dev
