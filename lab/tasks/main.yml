@@ -12,10 +12,14 @@
       - git
       - jq
       - julia
+      - libfontconfig1-dev
+      - libfribidi-dev
       - libgdal-dev
+      - libharfbuzz-dev
       - libproj-dev
       - libudunits2-dev
       - octave
+      - plink1.9
       - python3-pip
       - spyder
       - xfig
