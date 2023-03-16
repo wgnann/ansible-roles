@@ -16,6 +16,7 @@
       - libfribidi-dev
       - libgdal-dev
       - libharfbuzz-dev
+      - libnode-dev
       - libproj-dev
       - libudunits2-dev
       - libx11-dev
