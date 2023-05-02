@@ -25,6 +25,7 @@
       - python3-pip
       - spyder
       - xfig
+      - zstd
 
 - name: logind logout kill
   lineinfile:
