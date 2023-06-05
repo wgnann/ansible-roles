@@ -18,6 +18,7 @@
       - geany
       - info
       - kolourpaint
+      - ocsinventory-agent
       - okular
       - pavucontrol
       - pdfarranger
@@ -46,3 +47,8 @@
   file:
     path: /etc/dconf/db/local.d
     state: directory
+
+- name: ocs url
+  copy:
+    content: server=ocs.ime.usp.br
+    dest: /etc/ocsinventory/ocsinventory-agent.cfg
