@@ -25,7 +25,9 @@
       - plink1.9
       - python3-pip
       - spyder
+      - x2goclient
       - xfig
+      - zstd
 
 - name: logind logout kill
   lineinfile:
