@@ -15,6 +15,7 @@
       - libfontconfig1-dev
       - libfribidi-dev
       - libgdal-dev
+      - libgsl-dev
       - libharfbuzz-dev
       - libnode-dev
       - libproj-dev
