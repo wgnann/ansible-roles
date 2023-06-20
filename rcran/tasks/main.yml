@@ -5,14 +5,14 @@
 
 - name: Adicionar repositório do CRAN
   ansible.builtin.apt_repository:
-    repo: deb http://cloud.r-project.org/bin/linux/debian bullseye-cran40/
+    repo: deb http://cloud.r-project.org/bin/linux/debian bookworm-cran40/
     filename: rcran
 
 - name: Instalar pacotes do R
   ansible.builtin.apt:
     update_cache: yes
     state: latest
-    default_release: bullseye-cran40
+    default_release: bookworm-cran40
     pkg:
       - r-base-dev
       - r-recommended
