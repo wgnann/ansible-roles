@@ -1,22 +1,9 @@
-- name: coloca windows primeiro
-  file:
-    src: /etc/grub.d/30_os-prober
-    dest: /etc/grub.d/09_os-prober
-    state: link
-  notify: update grub
-
 - name: libera grub sem senha para linux
   lineinfile:
     path: /etc/grub.d/10_linux
     regexp: ^CLASS="--class gnu-linux --class gnu --class os"
     line: CLASS="--class gnu-linux --class gnu --class os --unrestricted"
   notify: update grub
-
-- name: libera grub sem senha para windows
-  lineinfile:
-    path: /etc/grub.d/30_os-prober
-    regexp: ^  CLASS=.*
-    line: CLASS="--unrestricted --class $(echo "${LABEL}" | LC_ALL=C sed 's,[[:digit:]]*$,,' | cut -d' ' -f1 | tr 'A-Z' 'a-z' | LC_ALL=C sed 's,[^[:alnum:]_],_,g')"
 
 # gerar hash com grub-mkpasswd-pbkdf2 e atribuir em grub_admir_password
 - name: trava boot sem senha
