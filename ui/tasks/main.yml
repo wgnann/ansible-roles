@@ -2,29 +2,29 @@
   apt:
     update_cache: yes
     pkg:
-      - default-jre
-      - hyphen-pt-br
-      - fonts-recommended
-      - ttf-mscorefonts-installer
       - chromium
       - chromium-l10n
-      - webext-ublock-origin-chromium
-      - webext-ublock-origin-firefox
-      - libreoffice-help-pt-br
-      - libreoffice-lightproof-pt-br
+      - default-jre
       - djview4
       - djvulibre-bin
       - elinks
+      - fonts-recommended
       - geany
+      - hyphen-pt-br
       - info
       - kolourpaint
+      - libreoffice-help-pt-br
+      - libreoffice-lightproof-pt-br
       - ocsinventory-agent
       - okular
       - pavucontrol
       - pdfarranger
       - python3-tk
+      - ttf-mscorefonts-installer
       - unrar-free
       - vlc
+      - webext-ublock-origin-chromium
+      - webext-ublock-origin-firefox
       - xournal
 
 - name: lightdm minimum uid
