@@ -1,0 +1,12 @@
+- name: Pacotes do cups e drivers
+  apt:
+    update_cache: yes
+    pkg:
+      - zstd
+      - cups
+      - foomatic-db-engine
+      - hp-ppd
+      - hplip
+      - openprinting-ppds
+      - printer-driver-all
+
