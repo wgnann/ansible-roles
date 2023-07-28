@@ -10,3 +10,20 @@
       - openprinting-ppds
       - printer-driver-all
 
+- name: Edita o cupsd.conf
+  ansible.builtin.template:
+    src: templates/cupsd.conf.j2
+    dest: /etc/cups/cupsd.conf
+    owner: root
+    group: root
+    mode: '0644'
+  register: cupsd_conf
+  tags: config
+
+- name: Reinicia o cups
+  service:
+    name: cups
+    state: restarted
+  when: cupsd_conf.changed
+  tags: config
+
