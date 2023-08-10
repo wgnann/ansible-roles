@@ -10,6 +10,14 @@
       - openprinting-ppds
       - printer-driver-all
 
+- name: Remove cups-browsed e dependência
+  apt:
+    update_cache: yes
+    state: absent
+    pkg:
+      - cups-browsed
+      - libavahi-glib1
+
 - name: Edita o cupsd.conf
   ansible.builtin.template:
     src: templates/cupsd.conf.j2
