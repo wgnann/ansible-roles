@@ -27,12 +27,6 @@
       - webext-ublock-origin-firefox
       - xournal
 
-- name: lightdm minimum uid
-  lineinfile:
-    path: /etc/lightdm/users.conf
-    regexp: '^minimum-uid='
-    line: minimum-uid=200
-
 - name: dconf profile dir
   file:
     path: /etc/dconf/profile
