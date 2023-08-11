@@ -1,3 +1,10 @@
+# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1038878
+- name: gambi do java
+  apt:
+    update_cache: yes
+    pkg:
+      - ca-certificates-java
+
 - name: pacotes gui
   apt:
     update_cache: yes
