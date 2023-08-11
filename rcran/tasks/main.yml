@@ -22,11 +22,8 @@
     pkg:
       - cmake
       - libatlas3-base
-      - libopenblas-base
-
-- name: Instala Rcmdr
-  ansible.builtin.command: Rscript -e "install.packages(\"Rcmdr\", repos=\"https://cloud.r-project.org/\", dependencies=TRUE)"
+      - libopenblas0
 
 - name: instala Rstudio
   ansible.builtin.apt:
-    deb: https://rstudio.org/download/latest/stable/desktop/bionic/rstudio-latest-amd64.deb
+    deb: https://si.ime.usp.br/downloads/rstudio-latest-amd64.deb
