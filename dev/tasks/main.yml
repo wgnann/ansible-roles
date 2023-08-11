@@ -1,0 +1,29 @@
+- name: pacotes dev
+  apt:
+    update_cache: yes
+    pkg:
+      - kbibtex
+      - kile
+      - kile-l10n
+      - texlive-full
+      - texmaker
+      - build-essential
+      - curl
+      - git
+      - jq
+      - libfontconfig1-dev
+      - libfribidi-dev
+      - libgdal-dev
+      - libgsl-dev
+      - libharfbuzz-dev
+      - libnode-dev
+      - libproj-dev
+      - libudunits2-dev
+      - libx11-dev
+      - octave
+      - plink1.9
+      - python3-pip
+      - spyder
+      - x2goclient
+      - xfig
+      - zstd
