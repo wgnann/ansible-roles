@@ -64,6 +64,20 @@
       - vim
       - wakeonlan
 
+- name: retira 127.0.1.1 do hosts
+  lineinfile:
+    path: /etc/hosts
+    regexp: '^127\.0\.1\.1.*'
+    state: absent
+
+- name: adiciona IP correto ao hosts
+  lineinfile:
+    path: /etc/hosts
+    insertafter: '^127\.0\.0\.1.*'
+    regexp: ".*{{ ansible_facts['fqdn'] }}.*{{ ansible_facts['hostname'] }}"
+    line: "{{ ansible_facts['default_ipv4']['address']}}	{{ ansible_facts['fqdn'] }}	{{ ansible_facts['hostname'] }}"
+    state: present
+
 - name: cups
   lineinfile:
     path: /etc/environment
