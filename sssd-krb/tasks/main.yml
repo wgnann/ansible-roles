@@ -5,6 +5,11 @@
       - krb5-user
       - sssd
 
+- name: configura krb5.conf
+  copy:
+    src: krb5.conf
+    dest: /etc/krb5.conf
+
 - name: instala keytab
   copy:
     src: "keytab/{{ ansible_hostname }}.keytab"
