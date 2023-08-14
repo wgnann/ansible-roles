@@ -4,18 +4,10 @@
     pkg:
       - libpam-mount
       - nfs-common
-      - quota
 
 - name: configura pam_mount Rede IME
   lineinfile:
     path: /etc/security/pam_mount.conf.xml
     regexp: '^<volume fstype="nfs4".*</sgrp></or>'
     insertbefore: '^</pam_mount>'
-    line: <volume fstype="nfs4" path="nfs.ime.usp.br:/home/%(GROUP)/%(USER)" mountpoint="~/Rede IME" options="nodev,nosuid"><not><or><user>root</user><user>admir</user><sgrp>nfshome</sgrp></or></not></volume>
-
-- name: configura pam_mount legacy
-  lineinfile:
-    path: /etc/security/pam_mount.conf.xml
-    regexp: '^<volume fstype="nfs4".*</sgrp></volume>'
-    insertbefore: '^</pam_mount>'
-    line: <volume fstype="nfs4" path="nfs.ime.usp.br:/home/%(GROUP)/%(USER)" mountpoint="~" options="nodev,nosuid"><sgrp>nfshome</sgrp></volume>
+    line: <volume fstype="nfs4" path="nfs.ime.usp.br:/home/%(GROUP)/%(USER)" mountpoint="~/Rede IME" options="nodev,nosuid"><not><or><user>root</user><user>admir</user></or></not></volume>
