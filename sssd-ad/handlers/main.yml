@@ -1,0 +1,4 @@
+- name: reinicia sssd
+  service:
+    name: sssd
+    state: restarted

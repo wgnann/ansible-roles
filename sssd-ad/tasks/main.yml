@@ -1,0 +1,32 @@
+- name: pacotes auth
+  apt:
+    update_cache: yes
+    pkg:
+      - realmd
+      - sssd-tools
+      - sssd
+      - libnss-sss
+      - libpam-sss
+      - adcli
+      - packagekit
+      - krb5-user
+
+- name: realm join
+  expect:
+    command: realm join AD.IME.USP.BR --do-not-touch-config
+    responses:
+      Password for *: "{{ ad_password }}"
+      Senha para *: "{{ ad_password }}"
+    creates: /etc/krb5.keytab
+
+- name: configura krb5.conf
+  copy:
+    src: krb5.conf
+    dest: /etc/krb5.conf
+
+- name: configura sssd
+  copy:
+    src: sssd.conf
+    dest: /etc/sssd/sssd.conf
+    mode: 0600
+  notify: reinicia sssd
