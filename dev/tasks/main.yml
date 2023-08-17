@@ -9,6 +9,7 @@
       - texmaker
       - build-essential
       - curl
+      - gdb
       - git
       - jq
       - libfontconfig1-dev
@@ -20,6 +21,7 @@
       - libproj-dev
       - libudunits2-dev
       - libx11-dev
+      - nasm
       - octave
       - plink1.9
       - python3-pip
