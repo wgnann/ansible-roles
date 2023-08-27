@@ -10,4 +10,4 @@
     path: /etc/security/pam_mount.conf.xml
     regexp: '^<volume fstype="nfs4".*</sgrp></or>'
     insertbefore: '^</pam_mount>'
-    line: <volume fstype="nfs4" path="nfs.ime.usp.br:/home/%(GROUP)/%(USER)" mountpoint="~/Rede IME" options="nodev,nosuid"><not><or><user>root</user><user>admir</user></or></not></volume>
+    line: <volume fstype="nfs4" path="tefnut.ad.ime.usp.br:/home/%(GROUP)/%(USER)" mountpoint="~/Rede IME" options="nodev,nosuid"><not><or><user>root</user><user>admir</user></or></not></volume>
