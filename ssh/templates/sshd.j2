@@ -1,6 +1,7 @@
 {% if open_to == 'authusers' %}
 Port 22
 Port 2222
+PasswordAuthentication yes
 {% endif %}
 GSSAPIAuthentication yes
 AllowGroups root wheel adm {{ open_to }}
