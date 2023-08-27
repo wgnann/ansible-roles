@@ -75,7 +75,14 @@
     path: /etc/hosts
     insertafter: '^127\.0\.0\.1.*'
     regexp: ".*{{ ansible_facts['fqdn'] }}.*{{ ansible_facts['hostname'] }}"
-    line: "{{ ansible_facts['default_ipv4']['address']}}	{{ ansible_facts['fqdn'] }}	{{ ansible_facts['hostname'] }}"
+    line: "{{ ansible_facts['default_ipv4']['address']}} {{ ansible_facts['fqdn'] }} {{ ansible_facts['hostname'] }}"
+    state: present
+
+- name: gambi tefnut
+  lineinfile:
+    path: /etc/hosts
+    insertafter: '^127\.0\.0\.1.*'
+    line: "200.144.254.25 tefnut.ad.ime.usp.br tefnut"
     state: present
 
 - name: cups
