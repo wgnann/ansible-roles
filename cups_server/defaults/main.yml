@@ -1,0 +1,18 @@
+---
+# defaults file for cups_server
+ports:
+  - 80
+  - 443
+  - 631
+browsing: 'No'
+browse_local_protocols: 'none'
+aliases:
+  - cups
+  - "{{ ansible_facts['hostname'] }}"
+domain: "{{ ansible_facts['domain'] }}"
+allowed_clients:
+  - '@LOCAL'
+allowed_admin:
+  - '@LOCAL'
+allowed_conf:
+  - '@LOCAL'

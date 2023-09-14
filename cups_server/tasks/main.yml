@@ -1,0 +1,37 @@
+- name: Pacotes do cups e drivers
+  apt:
+    update_cache: yes
+    pkg:
+      - zstd
+      - cups
+      - foomatic-db-engine
+      - hp-ppd
+      - hplip
+      - openprinting-ppds
+      - printer-driver-all
+
+- name: Remove cups-browsed e dependência
+  apt:
+    update_cache: yes
+    state: absent
+    pkg:
+      - cups-browsed
+      - libavahi-glib1
+
+- name: Edita o cupsd.conf
+  ansible.builtin.template:
+    src: templates/cupsd.conf.j2
+    dest: /etc/cups/cupsd.conf
+    owner: root
+    group: root
+    mode: '0644'
+  register: cupsd_conf
+  tags: config
+
+- name: Reinicia o cups
+  service:
+    name: cups
+    state: restarted
+  when: cupsd_conf.changed
+  tags: config
+
