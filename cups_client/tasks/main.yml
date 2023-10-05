@@ -1,0 +1,5 @@
+- name: cups
+  lineinfile:
+    path: /etc/environment
+    regexp: '^CUPS_SERVER='
+    line: 'CUPS_SERVER={{ cups_server }}'
