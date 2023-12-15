@@ -85,12 +85,6 @@
     line: "200.144.254.25 moros.ad.ime.usp.br moros"
     state: present
 
-- name: cups
-  lineinfile:
-    path: /etc/environment
-    regexp: '^CUPS_SERVER='
-    line: CUPS_SERVER=cups.ime.usp.br
-
 - name: ntp
   lineinfile:
     path: /etc/systemd/timesyncd.conf
