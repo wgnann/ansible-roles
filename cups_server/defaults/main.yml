@@ -8,6 +8,7 @@ browsing: 'No'
 browse_local_protocols: 'none'
 aliases:
   - cups
+  - xicara
   - "{{ ansible_facts['hostname'] }}"
 domain: "{{ ansible_facts['domain'] }}"
 allowed_clients:
