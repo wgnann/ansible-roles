@@ -27,6 +27,7 @@
       - okular
       - pavucontrol
       - pdfarranger
+      - pdftk
       - python3-tk
       - ttf-mscorefonts-installer
       - unrar-free
