@@ -20,4 +20,5 @@
       - nasm
       - plink1.9
       - python3-pip
+      - texlive-full
       - zstd

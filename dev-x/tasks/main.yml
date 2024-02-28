@@ -5,7 +5,6 @@
       - kbibtex
       - kile
       - kile-l10n
-      - texlive-full
       - texmaker
       - octave
       - spyder
