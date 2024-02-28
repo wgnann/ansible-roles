@@ -1,0 +1,13 @@
+- name: pacotes dev que usam modo gráfico
+  apt:
+    update_cache: yes
+    pkg:
+      - kbibtex
+      - kile
+      - kile-l10n
+      - texlive-full
+      - texmaker
+      - octave
+      - spyder
+      - x2goclient
+      - xfig

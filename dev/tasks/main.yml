@@ -2,11 +2,6 @@
   apt:
     update_cache: yes
     pkg:
-      - kbibtex
-      - kile
-      - kile-l10n
-      - texlive-full
-      - texmaker
       - amqp-tools
       - build-essential
       - curl
@@ -23,10 +18,6 @@
       - libudunits2-dev
       - libx11-dev
       - nasm
-      - octave
       - plink1.9
       - python3-pip
-      - spyder
-      - x2goclient
-      - xfig
       - zstd
