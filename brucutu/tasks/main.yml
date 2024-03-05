@@ -1,0 +1,5 @@
+- name: pacotes brucutu
+  apt:
+    update_cache: yes
+    pkg:
+      - x2goserver
