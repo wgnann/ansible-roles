@@ -8,3 +8,23 @@
   apt:
     deb: https://github.com/apptainer/apptainer/releases/download/v1.2.5/apptainer_1.2.5_amd64.deb
 
+- name: chave do repositório do miniconda
+  ansible.builtin.apt_key:
+    url: https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc
+    id: 34161F5BF5EB1D4BFBBB8F0A8AEB4F8B29D82806
+  tag: conda
+
+- name: arquivo do repositório do miniconda
+  ansible.builtin.apt_repository:
+    repo: deb https://repo.anaconda.com/pkgs/misc/debrepo/conda stable main
+    filename: conda
+  tag: conda
+
+- name: instala miniconda
+  ansible.builtin.apt:
+    update_cache: yes
+    state: latest
+    pkg:
+      - conda
+  tag: conda
+
