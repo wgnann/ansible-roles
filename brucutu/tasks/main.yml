@@ -5,6 +5,6 @@
       - x2goserver
 
 - name: install apptainer
-    apt:
-      deb: https://github.com/apptainer/apptainer/releases/download/v1.2.5/apptainer_1.2.5_amd64.deb
+  apt:
+    deb: https://github.com/apptainer/apptainer/releases/download/v1.2.5/apptainer_1.2.5_amd64.deb
 
