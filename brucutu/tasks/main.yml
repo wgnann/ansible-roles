@@ -12,13 +12,11 @@
   ansible.builtin.apt_key:
     url: https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc
     id: 34161F5BF5EB1D4BFBBB8F0A8AEB4F8B29D82806
-    tag: conda
 
 - name: arquivo do repositório do miniconda
   ansible.builtin.apt_repository:
     repo: deb https://repo.anaconda.com/pkgs/misc/debrepo/conda stable main
     filename: conda
-    tag: conda
 
 - name: instala miniconda
   ansible.builtin.apt:
@@ -26,5 +24,4 @@
     state: latest
     pkg:
       - conda
-    tag: conda
 
