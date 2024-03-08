@@ -25,3 +25,17 @@
     pkg:
       - conda
 
+- name: garante que existe o /etc/security/limits.d
+  ansible.builtin.file:
+    path: /etc/security/limits.d
+    state: directory
+    owner: root
+    group: root
+    mode: '755'
+
+- name: coloca o 20-nice.conf no limits.d
+  ansible.builtin.copy:
+    src: 20-nice.conf
+    dest: /etc/security/limits.d/20-nice.conf
+    owner: root
+    group: root
