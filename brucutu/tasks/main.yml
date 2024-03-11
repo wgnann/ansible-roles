@@ -39,3 +39,10 @@
     dest: /etc/security/limits.d/20-nice.conf
     owner: root
     group: root
+
+- name: define o APPTAINER_BINDPATH no /etc/environment
+  ansible.builtin.lineinfile:
+    path: /etc/environment
+    regexp: '^APPTAINER_BINDPATH='
+    line: APPTAINER_BINDPATH=/var/fasttmp
+  tags: environment
