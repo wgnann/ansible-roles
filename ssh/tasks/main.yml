@@ -1,6 +1,8 @@
 - name: pacotes ssh
   apt:
-    name: molly-guard
+    name:
+      - molly-guard
+      - fail2ban
 
 - name: configura sshd_config
   template:
@@ -12,3 +14,9 @@
   copy:
     content: GSSAPIDelegateCredentials yes
     dest: /etc/ssh/ssh_config.d/delegate.conf
+
+- name: configura jail ssh no fail2ban
+  copy:
+    src: ignore.conf
+    dest: /etc/fail2ban/jail.d/ignore.conf
+  notify: reinicia fail2ban
