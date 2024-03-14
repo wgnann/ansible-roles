@@ -22,5 +22,4 @@
       - python3-pip
       - texlive-full
       - octave
-      - x2goserver
       - zstd

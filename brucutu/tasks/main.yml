@@ -1,0 +1,48 @@
+- name: pacotes brucutu
+  apt:
+    update_cache: yes
+    pkg:
+      - x2goserver
+
+- name: install apptainer
+  apt:
+    deb: https://github.com/apptainer/apptainer/releases/download/v1.2.5/apptainer_1.2.5_amd64.deb
+
+- name: chave do repositório do miniconda
+  ansible.builtin.apt_key:
+    url: https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc
+    id: 34161F5BF5EB1D4BFBBB8F0A8AEB4F8B29D82806
+
+- name: arquivo do repositório do miniconda
+  ansible.builtin.apt_repository:
+    repo: deb https://repo.anaconda.com/pkgs/misc/debrepo/conda stable main
+    filename: conda
+
+- name: instala miniconda
+  ansible.builtin.apt:
+    update_cache: yes
+    state: latest
+    pkg:
+      - conda
+
+- name: garante que existe o /etc/security/limits.d
+  ansible.builtin.file:
+    path: /etc/security/limits.d
+    state: directory
+    owner: root
+    group: root
+    mode: '755'
+
+- name: coloca o 20-nice.conf no limits.d
+  ansible.builtin.copy:
+    src: 20-nice.conf
+    dest: /etc/security/limits.d/20-nice.conf
+    owner: root
+    group: root
+
+- name: define o APPTAINER_BINDPATH no /etc/environment
+  ansible.builtin.lineinfile:
+    path: /etc/environment
+    regexp: '^APPTAINER_BINDPATH='
+    line: APPTAINER_BINDPATH=/var/fasttmp
+  tags: environment
