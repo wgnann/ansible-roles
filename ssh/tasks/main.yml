@@ -3,6 +3,7 @@
     name:
       - molly-guard
       - fail2ban
+      - iptables
 
 - name: configura sshd_config
   template:
