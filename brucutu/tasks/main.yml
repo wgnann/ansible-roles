@@ -46,3 +46,11 @@
     regexp: '^APPTAINER_BINDPATH='
     line: APPTAINER_BINDPATH=/var/fasttmp
   tags: environment
+
+- name: garante que existe o /opt/apptainer
+  ansible.builtin.file:
+    path: /opt/apptainer
+    state: directory
+    owner: root
+    group: root
+    mode: '755'
