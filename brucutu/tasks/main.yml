@@ -54,3 +54,11 @@
     owner: root
     group: root
     mode: '755'
+
+- name: copia o script rstudio_apptainer.sh
+  ansible.builtin.copy:
+    src: rstudio_apptainer.sh
+    dest: /usr/local/bin/rstudio_apptainer.sh
+    owner: root
+    group: root
+    mode: '755'
