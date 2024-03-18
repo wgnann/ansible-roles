@@ -7,6 +7,6 @@ Temos uma imagem pronta que pode ser executada com o comando:
 
 apptainer exec /opt/apptainer/ml-verse_latest.sif R
 
-Mais informações em: http://wiki.ime.usp.br/tutoriais/apptainer
+Mais informações em: http://wiki.ime.usp.br/tutoriais:apptainer
 
 EOF
