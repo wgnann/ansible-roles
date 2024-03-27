@@ -11,8 +11,8 @@
         state: directory
 
     - name: Copia o instalador do OCS para o destino
-      win_copy:
-        src: '{{ ocs_installer_path ~ "/" ~ ocs_installer_filename }}'
+      win_get_url:
+        url: '{{ ocs_installer_url }}'
         dest: '{{ "%SYSTEMDRIVE%\\si\\" ~  ocs_installer_filename }}'
 
     - name: Executa o instalador do OCS
