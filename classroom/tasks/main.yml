@@ -31,7 +31,7 @@
 - name: adiciona usuário aula
   user:
     name: aula
-    password: '{{ classroom_user_password}}'
+    password: '{{ classroom_user_password }}'
     append: yes
     groups:
       - audio
