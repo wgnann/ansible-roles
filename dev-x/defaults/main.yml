@@ -1,0 +1,4 @@
+apt_keyring_path: /usr/share/keyrings
+vscodium_keyring_file: vscodium-archive-keyring.asc
+vscodium_keyfile_url: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
+vscodium_keyfile_checksum: sha256:dbdfd9af3b83b72a24c89160ce7638418142e2cf4736ab53e5061e10070f13c1

@@ -9,3 +9,25 @@
       - spyder
       - x2goclient
       - xfig
+
+- name: confirma existência da pasta de chaves de terceiros
+  file:
+    path: '{{ apt_keyring_path }}'
+    state: directory
+    mode: 755
+
+- name: chave do repositório do vscodium
+  get_url:
+    url: '{{ vscodium_keyfile_url }}'
+    dest: '{{ apt_keyring_path }}/{{ vscodium_keyring_file }}'
+    checksum: '{{ vscodium_keyfile_checksum }}'
+
+- name: repositório do vscodium
+  apt_repository:
+    repo: 'deb [ signed-by={{ apt_keyring_path }}/{{ vscodium_keyring_file}} ] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs vscodium main'
+    filename: vscodium
+
+- name: instala vscodium
+  apt:
+    update_cache: yes
+    pkg: codium
