@@ -5,7 +5,6 @@
     line: CLASS="--class gnu-linux --class gnu --class os --unrestricted"
   notify: update grub
 
-# gerar hash com grub-mkpasswd-pbkdf2 e atribuir em grub_admir_password
 - name: trava boot sem senha
   template:
     src: grub.j2

@@ -1,2 +1,11 @@
 admir_password_path: /tmp
 winrm_source_ip: any
+
+# instalador gerado em: https://chocolatey.org/install
+chocolatey_installer_url: https://si.ime.usp.br/downloads/ChocolateyInstaller.ps1
+
+# nome do repositório no cliente de chocolatey
+chocolatey_source_name: lollo
+
+# oriundo do nexus3
+chocolatey_source_url: http://lollo:8081/repository/Chocolatey/
