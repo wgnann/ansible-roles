@@ -1,3 +1,21 @@
+- name: chave do repositório do miniconda
+  ansible.builtin.get_url:
+    url: '{{ conda_keyfile_url }}'
+    dest: '{{ apt_keyring_path }}/{{ conda_keyring_file }}'
+    checksum: '{{ conda_keyfile_checksum }}'
+
+- name: arquivo do repositório do miniconda
+  ansible.builtin.apt_repository:
+    repo: 'deb [ signed-by={{ apt_keyring_path }}/{{ conda_keyring_file}} ] https://repo.anaconda.com/pkgs/misc/debrepo/conda stable main'
+    filename: conda
+
+- name: instala miniconda
+  ansible.builtin.apt:
+    update_cache: yes
+    state: latest
+    pkg:
+      - conda
+
 - name: pacotes dev
   apt:
     update_cache: yes
@@ -23,3 +41,4 @@
       - texlive-full
       - octave
       - zstd
+
