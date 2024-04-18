@@ -21,6 +21,11 @@
     content: export PATH=${PATH}:/opt/conda/bin/
     dest: /etc/profile.d/conda_path.sh
 
+- name: coloca source do PATH do conda no bashrc
+  ansible.builtin.lineinfile:
+    path: /etc/bash.bashrc
+    line: source /etc/profile.d/conda_path.sh
+
 - name: pacotes dev
   apt:
     update_cache: yes
