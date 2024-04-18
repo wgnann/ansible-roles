@@ -16,6 +16,11 @@
     pkg:
       - conda
 
+- name: coloca miniconda no PATH
+  ansible.builtin.copy:
+    content: export PATH=${PATH}:/opt/conda/bin/
+    dest: /etc/profile.d/conda_path.sh
+
 - name: pacotes dev
   apt:
     update_cache: yes
