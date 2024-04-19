@@ -1,0 +1,4 @@
+apt_keyring_path: /usr/share/keyrings
+conda_keyring_file: conda-archive-keyring.asc
+conda_keyfile_url: https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc
+conda_keyfile_checksum: sha256:a28caf002c4c35cf951bea114c2784a0a21b95e4b353c2e0f6715cf6a4f82e5d
