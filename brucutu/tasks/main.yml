@@ -4,10 +4,6 @@
     pkg:
       - x2goserver
 
-- name: install apptainer
-  apt:
-    deb: https://github.com/apptainer/apptainer/releases/download/v1.2.5/apptainer_1.2.5_amd64.deb
-
 - name: garante que existe o /etc/security/limits.d
   ansible.builtin.file:
     path: /etc/security/limits.d
@@ -29,14 +25,6 @@
     regexp: '^APPTAINER_BINDPATH='
     line: APPTAINER_BINDPATH=/var/fasttmp
   tags: environment
-
-- name: garante que existe o /opt/apptainer
-  ansible.builtin.file:
-    path: /opt/apptainer
-    state: directory
-    owner: root
-    group: root
-    mode: '755'
 
 - name: copia o script rstudio_apptainer.sh
   ansible.builtin.copy:
