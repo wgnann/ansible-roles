@@ -56,8 +56,10 @@
       - amqp-tools
       - build-essential
       - curl
+      - fish
       - gap
       - gdb
+      - gfortran
       - git
       - jq
       - libfontconfig1-dev
@@ -65,12 +67,14 @@
       - libgdal-dev
       - libgsl-dev
       - libharfbuzz-dev
+      - libpnetcdf-dev
       - libnode-dev
       - libproj-dev
       - libudunits2-dev
       - libx11-dev
       - nasm
       - plink1.9
+      - pnetcdf-bin
       - python3-pip
       - texlive-full
       - octave
