@@ -1,10 +1,12 @@
 - name: Instala programas dos laboratórios
   win_chocolatey:
     name:
+      - anaconda3
       - geogebra-classic.install
       - miktex
-      - texmaker
-      - texniccenter
+      - python
       - r.project
       - r.studio
+      - texmaker
+      - texstudio
     state: present
