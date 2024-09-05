@@ -19,6 +19,7 @@
       - spyder
       - texlive-latex-recommended
       - texmaker
+      - texstudio
 
 - name: install rstudio
   apt:
