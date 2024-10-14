@@ -76,6 +76,7 @@
       - plink1.9
       - pnetcdf-bin
       - python3-pip
+      - python3-pygments
       - texlive-full
       - octave
       - zbar-tools
