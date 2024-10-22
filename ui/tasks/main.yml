@@ -21,8 +21,6 @@
       - hyphen-pt-br
       - info
       - kolourpaint
-      - libreoffice-help-pt-br
-      - libreoffice-lightproof-pt-br
       - ocsinventory-agent
       - okular
       - pavucontrol
@@ -35,6 +33,15 @@
       - webext-ublock-origin-chromium
       - webext-ublock-origin-firefox
       - xournal
+
+- name: libreoffice backports
+  apt:
+    update_cache: yes
+    default_release: bookworm-backports
+    pkg:
+      - libreoffice
+      - libreoffice-help-pt-br
+      - libreoffice-lightproof-pt-br
 
 - name: dconf profile dir
   file:
